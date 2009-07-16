@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* PhoneGapDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {894, 784}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{976, 572}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* PhoneGap */ = {
+		activeExec = 0;
+		executables = (
+			E71018F90FE95EA2003D342F /* PhoneGap */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = E71018F90FE95EA2003D342F /* PhoneGap */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* PhoneGap */;
+		codeSenseManager = E710190E0FE95EA4003D342F /* Code sense */;
+		executables = (
+			E71018F90FE95EA2003D342F /* PhoneGap */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					599,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 269394814;
+			PBXWorkspaceStateSaveDate = 269394814;
+		};
+		perUserProjectItems = {
+			E71019770FEAF7D7003D342F = E71019770FEAF7D7003D342F /* PlistBookmark */;
+			E710197E0FEAF7D7003D342F = E710197E0FEAF7D7003D342F /* PlistBookmark */;
+			E710197F0FEAF7D7003D342F = E710197F0FEAF7D7003D342F /* PBXTextBookmark */;
+			E71019810FEAF7D7003D342F = E71019810FEAF7D7003D342F /* PlistBookmark */;
+			E72F0F650FF422C800CBB1C1 = E72F0F650FF422C800CBB1C1 /* PlistBookmark */;
+			E72F0FB90FF4248C00CBB1C1 = E72F0FB90FF4248C00CBB1C1 /* PBXTextBookmark */;
+			E72F0FBC0FF4248C00CBB1C1 = E72F0FBC0FF4248C00CBB1C1 /* PBXTextBookmark */;
+			E77067E90FF4499E00333115 = E77067E90FF4499E00333115 /* PBXTextBookmark */;
+			E77068350FF5674300333115 = E77068350FF5674300333115 /* PBXTextBookmark */;
+			E77068630FF585BB00333115 = E77068630FF585BB00333115 /* PBXTextBookmark */;
+			E77069560FF5976200333115 = E77069560FF5976200333115 /* PBXTextBookmark */;
+			E7D5E47510055367005B1662 = E7D5E47510055367005B1662 /* PBXTextBookmark */;
+			E7D5E48B100D292F005B1662 = E7D5E48B100D292F005B1662 /* PBXTextBookmark */;
+			E7D5E48C100D292F005B1662 = E7D5E48C100D292F005B1662 /* PBXTextBookmark */;
+			E7D5E48D100D292F005B1662 = E7D5E48D100D292F005B1662 /* PBXTextBookmark */;
+			E7D5E48E100D292F005B1662 = E7D5E48E100D292F005B1662 /* PBXTextBookmark */;
+			E7D5E4F1100E9C03005B1662 = E7D5E4F1100E9C03005B1662 /* PBXTextBookmark */;
+			E7D5E4F2100E9C03005B1662 = E7D5E4F2100E9C03005B1662 /* PBXTextBookmark */;
+			E7D5E4F7100EA373005B1662 = E7D5E4F7100EA373005B1662 /* PBXTextBookmark */;
+			E7EE383C0FF4263100561E0F = E7EE383C0FF4263100561E0F /* PBXTextBookmark */;
+			E7EE38400FF4263100561E0F = E7EE38400FF4263100561E0F /* PBXTextBookmark */;
+		};
+		sourceControlManager = E710190D0FE95EA4003D342F /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 230}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 231}";
+		};
+	};
+	47DC7FB20EFADF9E00D0B526 /* Settings.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 215}, {750, 558}}";
+		};
+	};
+	47FAB6A70EF751E2005F55AB /* PhoneGapViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {756, 294}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{48, 462}";
+		};
+	};
+	8254F4BB0E6397F0002FDA36 /* Vibrate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {850, 639}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 234}";
+		};
+	};
+	825DFB5D0E464E6C000D0A5D /* README.md */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 230}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 22}";
+		};
+	};
+	8D1107310486CEB800E47090 /* Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{291, 186}, {750, 558}}";
+		};
+	};
+	E71018F90FE95EA2003D342F /* PhoneGap */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = PhoneGap;
+		sourceDirectories = (
+		);
+	};
+	E710190D0FE95EA4003D342F /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	E710190E0FE95EA4003D342F /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	E71019770FEAF7D7003D342F /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 47DC7FB20EFADF9E00D0B526 /* Settings.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/andrewlunny/Documents/Nitobi/pigeon/Settings.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E710197E0FEAF7D7003D342F /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIconFile,
+		);
+		name = /Users/andrewlunny/Documents/Nitobi/pigeon/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E710197F0FEAF7D7003D342F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E71019800FEAF7D7003D342F /* index.html */;
+		name = "index.html: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 1164;
+	};
+	E71019800FEAF7D7003D342F /* index.html */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.html;
+		name = index.html;
+		path = /Users/andrewlunny/Documents/Nitobi/pigeon/www/index.html;
+		sourceTree = "<absolute>";
+	};
+	E71019810FEAF7D7003D342F /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 47DC7FB20EFADF9E00D0B526 /* Settings.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/andrewlunny/Documents/Nitobi/pigeon/Settings.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E710D1421003F76900C0F585 /* index.html */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.html;
+		name = index.html;
+		path = /Users/andrewlunny/Documents/Nitobi/pigeon/www/index.html;
+		sourceTree = "<absolute>";
+	};
+	E72F0F650FF422C800CBB1C1 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundlePackageType,
+		);
+		name = /Users/andrewlunny/Documents/Nitobi/pigeon/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	E72F0FB00FF4244800CBB1C1 /* xui-min-0.9.0.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = "xui-min-0.9.0.js";
+		path = "/Users/andrewlunny/Documents/Nitobi/pigeon/www/script/xui-min-0.9.0.js";
+		sourceTree = "<absolute>";
+	};
+	E72F0FB90FF4248C00CBB1C1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E72F0FB00FF4244800CBB1C1 /* xui-min-0.9.0.js */;
+		name = "xui-min-0.9.0.js: 1";
+		rLen = 0;
+		rLoc = 6153;
+		rType = 0;
+		vrLen = 6882;
+		vrLoc = 0;
+	};
+	E72F0FBC0FF4248C00CBB1C1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E72F0FB00FF4244800CBB1C1 /* xui-min-0.9.0.js */;
+		name = "xui-min-0.9.0.js: 1";
+		rLen = 0;
+		rLoc = 6153;
+		rType = 0;
+		vrLen = 6882;
+		vrLoc = 0;
+	};
+	E77067E90FF4499E00333115 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77067EA0FF4499E00333115 /* pigeon.js */;
+		name = "pigeon.js: 19";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1595;
+		vrLoc = 0;
+	};
+	E77067EA0FF4499E00333115 /* pigeon.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = pigeon.js;
+		path = /Users/andrewlunny/Documents/Nitobi/pigeon/www/script/pigeon.js;
+		sourceTree = "<absolute>";
+	};
+	E77068350FF5674300333115 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77068360FF5674300333115 /* master.css */;
+		name = "master.css: 12";
+		rLen = 0;
+		rLoc = 229;
+		rType = 0;
+		vrLen = 216;
+		vrLoc = 0;
+	};
+	E77068360FF5674300333115 /* master.css */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.css;
+		name = master.css;
+		path = /Users/andrewlunny/Documents/Nitobi/pigeon/www/master.css;
+		sourceTree = "<absolute>";
+	};
+	E77068630FF585BB00333115 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77068640FF585BB00333115 /* phonegap.js */;
+		name = "phonegap.js: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1499;
+		vrLoc = 7149;
+	};
+	E77068640FF585BB00333115 /* phonegap.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = phonegap.js;
+		path = /Users/andrewlunny/Documents/Nitobi/pigeon/www/script/phonegap.js;
+		sourceTree = "<absolute>";
+	};
+	E77069560FF5976200333115 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77068640FF585BB00333115 /* phonegap.js */;
+		name = "phonegap.js: 288";
+		rLen = 17;
+		rLoc = 8970;
+		rType = 0;
+		vrLen = 779;
+		vrLoc = 8617;
+	};
+	E7D5E47510055367005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E710D1421003F76900C0F585 /* index.html */;
+		name = "index.html: 62";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 1564;
+	};
+	E7D5E48B100D292F005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77068360FF5674300333115 /* master.css */;
+		name = "master.css: 55";
+		rLen = 0;
+		rLoc = 799;
+		rType = 0;
+		vrLen = 515;
+		vrLoc = 357;
+	};
+	E7D5E48C100D292F005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77067EA0FF4499E00333115 /* pigeon.js */;
+		name = "pigeon.js: 59";
+		rLen = 0;
+		rLoc = 2033;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 1129;
+	};
+	E7D5E48D100D292F005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77068360FF5674300333115 /* master.css */;
+		name = "master.css: 55";
+		rLen = 0;
+		rLoc = 799;
+		rType = 0;
+		vrLen = 515;
+		vrLoc = 357;
+	};
+	E7D5E48E100D292F005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E77067EA0FF4499E00333115 /* pigeon.js */;
+		name = "pigeon.js: 59";
+		rLen = 0;
+		rLoc = 2033;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 1129;
+	};
+	E7D5E4F1100E9C03005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E710D1421003F76900C0F585 /* index.html */;
+		name = "index.html: 84";
+		rLen = 0;
+		rLoc = 2942;
+		rType = 0;
+		vrLen = 1508;
+		vrLoc = 0;
+	};
+	E7D5E4F2100E9C03005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E710D1421003F76900C0F585 /* index.html */;
+		name = "index.html: 84";
+		rLen = 0;
+		rLoc = 2942;
+		rType = 0;
+		vrLen = 1508;
+		vrLoc = 0;
+	};
+	E7D5E4F7100EA373005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E7D5E4F8100EA373005B1662 /* pigeon.js */;
+		name = "pigeon.js: 61";
+		rLen = 0;
+		rLoc = 2115;
+		rType = 0;
+		vrLen = 1083;
+		vrLoc = 1180;
+	};
+	E7D5E4F8100EA373005B1662 /* pigeon.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = pigeon.js;
+		path = /Users/andrewlunny/Documents/Nitobi/pigeon/www/script/pigeon.js;
+		sourceTree = "<absolute>";
+	};
+	E7EE383C0FF4263100561E0F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E7EE383D0FF4263100561E0F /* xui-0.9.0.js */;
+		name = "xui-0.9.0.js: 229";
+		rLen = 0;
+		rLoc = 6420;
+		rType = 0;
+		vrLen = 1320;
+		vrLoc = 5979;
+	};
+	E7EE383D0FF4263100561E0F /* xui-0.9.0.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = "xui-0.9.0.js";
+		path = "/Users/andrewlunny/Documents/Nitobi/pigeon/www/script/xui-0.9.0.js";
+		sourceTree = "<absolute>";
+	};
+	E7EE38400FF4263100561E0F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E7EE38410FF4263100561E0F /* xui-0.9.0.js */;
+		name = "xui-0.9.0.js: 229";
+		rLen = 0;
+		rLoc = 6420;
+		rType = 0;
+		vrLen = 1320;
+		vrLoc = 5979;
+	};
+	E7EE38410FF4263100561E0F /* xui-0.9.0.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = "xui-0.9.0.js";
+		path = "/Users/andrewlunny/Documents/Nitobi/pigeon/www/script/xui-0.9.0.js";
+		sourceTree = "<absolute>";
+	};
+}

@@ -1,0 +1,68 @@
+  body {
+    background:#222 none repeat scroll 0 0;
+    color:#999;
+    font-family:Helvetica;
+    font-size:72%;
+    line-height:1.5em;
+    margin:0;
+    border-top:1px solid #393939;
+  }
+
+	#post_new_tweet {
+		display: none;
+	}
+	#content, #search_content {
+		width: 320px;
+	}
+	h1 {
+		font-weight: bold;
+		color: #fff;
+	}	
+	.tweet img {
+		float: left;
+		margin: 10px 5px 5px 5px;
+		width: 48px;
+		height: 48px;
+	}
+	
+	.tweet {
+		display: block;
+		clear: both;
+	}
+	
+	.tweet .user_name {
+		font-weight: bold;
+		color: #ccc;
+	}
+	.tweet p {
+		margin: 0;
+	}
+	a, a:visited {
+		font-weight: bold;
+		color: #fff;
+		text-decoration: none;
+	}
+	#menu_options ul li {
+		display: inline;
+		margin-right: 6px;
+		font-size: 65%;
+	}
+	.submission {
+		display: block;
+		text-align: right;
+	}
+	#tweet_link {
+		width: 300px;
+	}
+	#login_link {
+		width: 250px;
+	}
+	#login_screen label {
+		color: #ffffff;
+		vertical-align: baseline;
+		display: block;
+		float: left;
+		width: 100px;
+		margin-right: 5px;
+		text-align: right;
+	}

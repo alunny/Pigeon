@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Pigeon - PhoneGap Twitter App</title>
+		<script type="text/javascript" src="script/phonegap.js"></script>
+		<script type="text/javascript" src="script/xui-min.js"></script>
+		<script type="text/javascript" src="script/pigeon.js"></script>
+		<script type="text/javascript" src="script/sql.js"></script>
+		<script>
+		
+		x$.data = {};
+		
+		var load_local_tweets = function(container_id) {
+			var suc = function(p) {
+				var params = "geocode=" + encodeURIComponent(p.latitude + "," + p.longitude + ",25km");
+				var query_url = tweet_search_url + "?" + params;
+				x$(container_id).xhr(query_url,
+					{ callback: function() {
+						var tweetstream = eval("[" + this.responseText + "]")[0].results;
+						x$.data.new_tweets = tweetstream;
+						setTimeout("display_search_tweets(x$.data.new_tweets,'"+container_id+"')",10);
+					},
+						method: "get"
+					});
+			};
+			var fail = function(){
+				alert("failed");
+			};
+			navigator.geolocation.getCurrentPosition(suc,fail);
+		}
+
+		var display_search_tweets = function(tweetstream,container_id) {
+			var i=0;
+			for (i=0; i<tweetstream.length; i++) {
+				var div_c = format_tweet({profile_image:tweetstream[i].profile_image_url,
+					user_name:tweetstream[i].from_user,tweet_text:tweetstream[i].text });
+				x$(container_id).html("bottom",div_c);
+			}
+		}
+
+
+		</script>
+		<link rel="stylesheet" type="text/css" href="master.css" media="screen" />
+	</head>
+	<body>
+		<h1>Pigeon</h1>
+		<div id="menu_options">
+			<ul>
+				<li><a href="#" id="menu_friends">FRIENDS</a></li>
+				<li><a href="#" id="menu_search">SEARCH</a></li>
+				<li><a href="#" id="menu_local">LOCAL</a></li>
+				<li><a href="#" id="menu_dms">DMs</a></li>
+				<li><a href="#" id="menu_logout">LOGOUT</a></li>
+			</ul>
+		</div>
+		<div id="login_screen">
+			<form id="login_form" action="#">
+				<label>User</label><input type="text" id="user_field" name="Username" length="15" /><br/>
+				<label>Password</label><input type="password" id="pass_field" name="Password" length="15" /><br/>
+				<p><a href="#" class="submission" id="login_link">Login</a></p>
+			</form>
+		</div>
+		<div id="post_new_tweet">
+			<textarea id="tweet_content" rows="3" cols="45" maxlength="140"></textarea><br/>
+			<p><a href="#" class="submission" id="tweet_link">Tweet This!</a></p>
+		</div>
+		<div id="content" class="twt_panel">
+		</div>
+		<div id="search_content" class="twt_panel">
+		</div>
+		<script>
+		x$(window).load(function() {
+			
+			sql.get("user", function(m) { x$.data.m_user = m; });
+			sql.get("password", function(m) { x$.data.m_pass = m; });
+			
+		});
+		
+		x$("#tweet_link").click(function() {
+			var twt = document.getElementById("tweet_content").value;
+			post_tweet(twt,x$.data.m_user,x$.data.m_pass,"#content");
+			return false;
+		});
+		
+		var login_function = function(e) {		
+			document.getElementById('user_field').blur(); 
+			document.getElementById('pass_field').blur(); 
+			
+			x$.data.m_user = x$("#user_field").elements[0].value;
+			x$.data.m_pass = x$("#pass_field").elements[0].value;
+			
+			sql.post("user",x$.data.m_user);
+			sql.post("password",x$.data.m_pass);
+			
+			load_tweets("#content",x$.data.m_user,x$.data.m_pass);
+			x$("#post_new_tweet").css({display:"block"});
+			e.preventDefault();
+		}
+		
+		x$("#login_link").click(login_function);
+		
+		x$("#login_form").on("submit",login_function);
+		
+		x$("#menu_local").click(function() {
+			x$("#content").css({display:"none"});
+			load_local_tweets("#search_content");
+			x$("#search_content").html("top","<h2>Tweets Near You</h2>");
+			return false;
+		});
+		
+		</script>
+	</body>	
+</html>
