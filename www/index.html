@@ -67,16 +67,16 @@
 			<textarea id="tweet_content" rows="3" cols="45" maxlength="140"></textarea><br/>
 			<p><a href="#" class="submission" id="tweet_link">Tweet This!</a></p>
 		</div>
+		<div id="dm_content" class="twt_panel">
+		</div>
 		<div id="content" class="twt_panel">
 		</div>
 		<div id="search_content" class="twt_panel">
 		</div>
 		<script>
 		x$(window).load(function() {
-			
 			sql.get("user", function(m) { x$.data.m_user = m; });
 			sql.get("password", function(m) { x$.data.m_pass = m; });
-			
 		});
 		
 		x$("#tweet_link").click(function() {
@@ -96,6 +96,7 @@
 			sql.post("password",x$.data.m_pass);
 			
 			load_tweets("#content",x$.data.m_user,x$.data.m_pass);
+			show_panel("#content");
 			x$("#post_new_tweet").css({display:"block"});
 			e.preventDefault();
 		}
@@ -105,11 +106,23 @@
 		x$("#login_form").on("submit",login_function);
 		
 		x$("#menu_local").click(function() {
-			x$("#content").css({display:"none"});
 			load_local_tweets("#search_content");
 			x$("#search_content").html("top","<h2>Tweets Near You</h2>");
+			show_panel("#search_content");
 			return false;
 		});
+		
+		x$("#menu_dms").click(function() {
+			load_dms("#dm_content",x$.data.m_user,x$.data.m_pass);
+			show_panel("#dm_content");
+			return false;
+		});
+		
+		x$("#menu_friends").click(function() {
+			load_tweets("#content",x$.data.m_user,x$.data.m_pass);
+			show_panel("#content");
+			return false;
+		})
 		
 		</script>
 	</body>	
