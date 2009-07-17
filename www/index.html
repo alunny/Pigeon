@@ -124,6 +124,14 @@
 			return false;
 		})
 		
+		x$("#menu_logout").click(function() {
+			x$("#content").html(" ");
+			x$("#post_new_tweet").css({display:"none"});
+			document.getElementById('user_field').value = "";
+			document.getElementById('pass_field').value = "";
+			show_panel("#login_screen");
+		})
+		
 		</script>
 	</body>	
 </html>
