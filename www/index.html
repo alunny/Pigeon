@@ -31,6 +31,19 @@
 			};
 			navigator.geolocation.getCurrentPosition(suc,fail);
 		}
+		
+		var search_tweets = function(container_id, search_query) {
+			var params = "q=" + encodeURIComponent(search_query);
+			var query_url = tweet_search_url + "?" + params;
+			x$(container_id).xhr(query_url,
+				{ callback: function() {
+						var tweetstream = eval("[" + this.responseText + "]")[0].results;
+						x$.data.new_tweets = tweetstream;
+						display_search_tweets(x$.data.new_tweets,container_id);
+					},
+						method: "get"
+					});
+		}
 
 		var display_search_tweets = function(tweetstream,container_id) {
 			var i=0;
@@ -73,6 +86,14 @@
 		</div>
 		<div id="search_content" class="twt_panel">
 		</div>
+		<div id="search_panel" class="twt_panel">
+			<form id="search_form" action="#">
+				<label>Search</label><input type="text" id="query" name="Query" length="15" /><br>
+				<p><a href="#" class="submission" id="search_link">Search</a></p>
+			</form>
+			<div id="search_results">
+			</div>
+		</div>
 		<script>
 		x$(window).load(function() {
 			sql.get("user", function(m) { x$.data.m_user = m; });
@@ -101,6 +122,20 @@
 			e.preventDefault();
 		}
 		
+		var search_function = function(e) {
+			document.getElementById('query').blur();
+			
+			var search_query = document.getElementById('query').value;
+			x$("#search_results").html("top","<h2>Search Results for \"" + search_query + "\"</h2>");
+			search_tweets("#search_results",search_query);
+			
+			e.preventDefault();
+		}
+		
+		x$("#search_link").click(search_function);
+		
+		x$("#search_form").on("submit",search_function);
+		
 		x$("#login_link").click(login_function);
 		
 		x$("#login_form").on("submit",login_function);
@@ -118,11 +153,17 @@
 			return false;
 		});
 		
+		x$("#menu_search").click(function() {
+			x$("#login_screen").setStyle("display","none");
+			show_panel("#search_panel");
+			return false;
+		});
+		
 		x$("#menu_friends").click(function() {
 			load_tweets("#content",x$.data.m_user,x$.data.m_pass);
 			show_panel("#content");
 			return false;
-		})
+		});
 		
 		x$("#menu_logout").click(function() {
 			x$("#content").html(" ");

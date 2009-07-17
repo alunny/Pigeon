@@ -52,13 +52,13 @@
 		display: block;
 		text-align: right;
 	}
-	#tweet_link {
+	#tweet_link, #search_link {
 		width: 300px;
 	}
 	#login_link {
 		width: 250px;
 	}
-	#login_screen label {
+	#login_screen label, #search_panel label {
 		color: #ffffff;
 		vertical-align: baseline;
 		display: block;
