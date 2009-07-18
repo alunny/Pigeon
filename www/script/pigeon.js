@@ -21,9 +21,8 @@ x$(window).load(function() {
 	x$("#login_form").on("submit",login_function);
 
 	x$("#menu_local").click(function() {
-		load_local_tweets("#search_content");
-		x$("#search_content").html("top","<h2>Tweets Near You</h2>");
-		show_panel("#search_content");
+		load_local_tweets("#local_results");
+		show_panel("#local_content");
 		return false;
 	});
 
@@ -36,7 +35,6 @@ x$(window).load(function() {
 	x$("#menu_search").click(function() {
 		x$(".panel").css({display:'none'});
 		x$("#search_form").setStyle("display", "block");
-		show_panel("#search_panel");
 		return false;
 	});
 
@@ -171,6 +169,7 @@ var search_tweets = function(container_id, search_query) {
 }
 
 var display_search_tweets = function(tweetstream,container_id) {
+	x$(container_id + " div").remove();
 	var i=0;
 	for (i=0; i<tweetstream.length; i++) {
 		var div_c = format_tweet({profile_image:tweetstream[i].profile_image_url,
@@ -199,8 +198,9 @@ var search_function = function(e) {
 	document.getElementById('query').blur();
 	
 	var search_query = document.getElementById('query').value;
-	x$("#search_results").html("top","<h2>Search Results for \"" + search_query + "\"</h2>");
+	x$("#search_term").html(search_query);
 	search_tweets("#search_results",search_query);
+	show_panel("#search_panel");
 	
 	e.preventDefault();
 }

@@ -132,11 +132,12 @@ ul {
 	Content 
 --------------------------------------------------------------------------*/
 
-#post_new_tweet {
+
+.twt_panel, #post_new_tweet {
 	display: none;
 }
 
-#content, #search_content {
+.twt_panel {
 	width: 320px;
 }
 
