@@ -228,8 +228,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,7 +265,6 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>AA13D33F0F202D0400B18061</string>
-								<string>E7D5E4401003FA91005B1662</string>
 								<string>AA13D3080F20286200B18061</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -300,7 +297,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>-1154 270 1046 719 -1280 0 1280 1024 </string>
+						<string>128 59 1046 719 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -311,12 +308,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>pigeon.js</string>
+								<string>index.html</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -324,36 +323,30 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>pigeon.js</string>
+										<string>index.html</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E7D5E4F7100EA373005B1662</string>
+										<string>E7D5E5BE1011615F005B1662</string>
 										<key>history</key>
 										<array>
 											<string>E71019770FEAF7D7003D342F</string>
 											<string>E72F0F650FF422C800CBB1C1</string>
-											<string>E72F0FB90FF4248C00CBB1C1</string>
-											<string>E7EE383C0FF4263100561E0F</string>
 											<string>E77069560FF5976200333115</string>
-											<string>E7D5E48B100D292F005B1662</string>
-											<string>E7D5E4F1100E9C03005B1662</string>
-											<string>E7D5E48C100D292F005B1662</string>
+											<string>E7D5E57310115237005B1662</string>
+											<string>E7D5E57710115237005B1662</string>
+											<string>E7D5E5A4101154CE005B1662</string>
+											<string>E7D5E5A810115509005B1662</string>
 										</array>
 										<key>prevStack</key>
 										<array>
 											<string>E710197E0FEAF7D7003D342F</string>
 											<string>E710197F0FEAF7D7003D342F</string>
 											<string>E71019810FEAF7D7003D342F</string>
-											<string>E72F0FBC0FF4248C00CBB1C1</string>
-											<string>E7EE38400FF4263100561E0F</string>
 											<string>E77067E90FF4499E00333115</string>
 											<string>E77068350FF5674300333115</string>
 											<string>E77068630FF585BB00333115</string>
-											<string>E7D5E47510055367005B1662</string>
-											<string>E7D5E48D100D292F005B1662</string>
-											<string>E7D5E48E100D292F005B1662</string>
-											<string>E7D5E4F2100E9C03005B1662</string>
+											<string>E7D5E58110115237005B1662</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -367,7 +360,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {838, 571}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-1154 270 1046 719 -1280 0 1280 1024 </string>
+								<string>128 59 1046 719 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -387,7 +380,7 @@
 								<key>Frame</key>
 								<string>{{0, 576}, {838, 102}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-1154 270 1046 719 -1280 0 1280 1024 </string>
+								<string>128 59 1046 719 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -411,9 +404,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>E7D5E44C1003FA9B005B1662</string>
+				<string>E7D5E5B11011551B005B1662</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>E7D5E44D1003FA9B005B1662</string>
+				<string>E7D5E5B21011551B005B1662</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -553,7 +546,7 @@
 		<string>/Users/andrewlunny/Documents/Nitobi/pigeon/Pigeon.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>-1154 270 1046 719 -1280 0 1280 1024 </string>
+	<string>128 59 1046 719 0 0 1280 778 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -630,7 +623,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>E710191D0FE961D6003D342F</string>
-				<string>E7D5E45010054C9D005B1662</string>
+				<string>E7D5E5B31011551B005B1662</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -750,13 +743,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>E7D5E45110054C9D005B1662</string>
+				<string>E7D5E5B41011551B005B1662</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>E7D5E45210054C9D005B1662</string>
-				<string>E7D5E45310054C9D005B1662</string>
-				<string>E7D5E45410054C9D005B1662</string>
-				<string>E7D5E45510054C9D005B1662</string>
-				<string>E7D5E45610054C9D005B1662</string>
+				<string>E7D5E5B51011551B005B1662</string>
+				<string>E7D5E5B61011551B005B1662</string>
+				<string>E7D5E5B71011551B005B1662</string>
+				<string>E7D5E5B81011551B005B1662</string>
+				<string>E7D5E5B91011551B005B1662</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -918,7 +911,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>E7D5E45710054C9D005B1662</string>
+				<string>E7D5E5BA1011551B005B1662</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
