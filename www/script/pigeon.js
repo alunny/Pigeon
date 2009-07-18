@@ -34,7 +34,8 @@ x$(window).load(function() {
 	});
 
 	x$("#menu_search").click(function() {
-		x$("#login_screen").setStyle("display","none");
+		x$(".panel").css({display:'none'});
+		x$("#search_form").setStyle("display", "block");
 		show_panel("#search_panel");
 		return false;
 	});

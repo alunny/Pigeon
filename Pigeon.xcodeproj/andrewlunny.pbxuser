@@ -88,6 +88,8 @@
 			E7D5E5BC10115597005B1662 /* PBXTextBookmark */ = E7D5E5BC10115597005B1662 /* PBXTextBookmark */;
 			E7D5E5BE1011615F005B1662 /* PBXTextBookmark */ = E7D5E5BE1011615F005B1662 /* PBXTextBookmark */;
 			E7D5E5C0101163F1005B1662 /* PBXTextBookmark */ = E7D5E5C0101163F1005B1662 /* PBXTextBookmark */;
+			E7D5E5C2101164B1005B1662 /* PBXTextBookmark */ = E7D5E5C2101164B1005B1662 /* PBXTextBookmark */;
+			E7D5E5C4101164F5005B1662 /* PBXTextBookmark */ = E7D5E5C4101164F5005B1662 /* PBXTextBookmark */;
 			E7EE38400FF4263100561E0F = E7EE38400FF4263100561E0F /* PBXTextBookmark */;
 		};
 		sourceControlManager = E710190D0FE95EA4003D342F /* Source Control */;
@@ -617,9 +619,9 @@
 		path = /Users/andrewlunny/Documents/Nitobi/pigeon/www/index.html;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {777, 714}}";
-			sepNavSelRange = "{1044, 0}";
-			sepNavVisRange = "{636, 1349}";
+			sepNavIntBoundsRect = "{{0, 0}, {777, 1218}}";
+			sepNavSelRange = "{1820, 0}";
+			sepNavVisRange = "{1368, 1143}";
 		};
 	};
 	E7D5E5B01011551B005B1662 /* PBXTextBookmark */ = {
@@ -661,6 +663,26 @@
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 636;
+	};
+	E7D5E5C2101164B1005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E7D5E5A910115509005B1662 /* index.html */;
+		name = "index.html: 26";
+		rLen = 0;
+		rLoc = 987;
+		rType = 0;
+		vrLen = 1299;
+		vrLoc = 363;
+	};
+	E7D5E5C4101164F5005B1662 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E7D5E5A910115509005B1662 /* index.html */;
+		name = "index.html: 52";
+		rLen = 0;
+		rLoc = 1820;
+		rType = 0;
+		vrLen = 1143;
+		vrLoc = 1368;
 	};
 	E7EE38400FF4263100561E0F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
