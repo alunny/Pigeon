@@ -4,6 +4,56 @@ var tweet_post_url = "http://www.twitter.com/statuses/update.json";
 var tweet_search_url = "http://search.twitter.com/search.json";
 var tweet_response = "";
 
+// Global Data Store
+x$.data = {};
+
+x$(window).load(function() {
+	x$("#tweet_link").click(function() {
+		var twt = document.getElementById("tweet_content").value;
+		post_tweet(twt,x$.data.m_user,x$.data.m_pass,"#content");
+		return false;
+	});
+
+	x$("#search_link").click(search_function);
+	x$("#search_form").on("submit",search_function);
+
+	x$("#login_link").click(login_function);
+	x$("#login_form").on("submit",login_function);
+
+	x$("#menu_local").click(function() {
+		load_local_tweets("#search_content");
+		x$("#search_content").html("top","<h2>Tweets Near You</h2>");
+		show_panel("#search_content");
+		return false;
+	});
+
+	x$("#menu_dms").click(function() {
+		load_dms("#dm_content",x$.data.m_user,x$.data.m_pass);
+		show_panel("#dm_content");
+		return false;
+	});
+
+	x$("#menu_search").click(function() {
+		x$("#login_screen").setStyle("display","none");
+		show_panel("#search_panel");
+		return false;
+	});
+
+	x$("#menu_friends").click(function() {
+		load_tweets("#content",x$.data.m_user,x$.data.m_pass);
+		show_panel("#content");
+		return false;
+	});
+
+	x$("#menu_logout").click(function() {
+		x$("#content").html(" ");
+		x$("#post_new_tweet").css({display:"none"});
+		document.getElementById('user_field').value = "";
+		document.getElementById('pass_field').value = "";
+		show_panel("#login_screen");
+	});
+});
+
 var load_dms = function(container_id,user,passw) {
 	x$(container_id).xhr(direct_messages_url,
 		{ callback: function () {
@@ -81,14 +131,74 @@ var post_tweet = function(status,user,passw,container_id) {
 	navigator.notification.beep(2);
 }
 
-// onload
-var wake_pigeon = function() {
-	// check for user / pass
-	// if there, load current tweets, logout
-	// if not, display login screen
-}
-
 var show_panel = function(identifier) {
 	x$(".twt_panel").css({display:'none'});
 	x$(identifier).css({display:'block'});
+}
+
+var load_local_tweets = function(container_id) {
+	var suc = function(p) {
+		var params = "geocode=" + encodeURIComponent(p.latitude + "," + p.longitude + ",25km");
+		var query_url = tweet_search_url + "?" + params;
+		x$(container_id).xhr(query_url,
+			{ callback: function() {
+				var tweetstream = eval("[" + this.responseText + "]")[0].results;
+				x$.data.new_tweets = tweetstream;
+				setTimeout("display_search_tweets(x$.data.new_tweets,'"+container_id+"')",10);
+			},
+				method: "get"
+			});
+	};
+	var fail = function(){
+		alert("failed");
+	};
+	navigator.geolocation.getCurrentPosition(suc,fail);
+}
+
+var search_tweets = function(container_id, search_query) {
+	var params = "q=" + encodeURIComponent(search_query);
+	var query_url = tweet_search_url + "?" + params;
+	x$(container_id).xhr(query_url,
+		{ callback: function() {
+				var tweetstream = eval("[" + this.responseText + "]")[0].results;
+				x$.data.new_tweets = tweetstream;
+				display_search_tweets(x$.data.new_tweets,container_id);
+			},
+				method: "get"
+			});
+}
+
+var display_search_tweets = function(tweetstream,container_id) {
+	var i=0;
+	for (i=0; i<tweetstream.length; i++) {
+		var div_c = format_tweet({profile_image:tweetstream[i].profile_image_url,
+			user_name:tweetstream[i].from_user,tweet_text:tweetstream[i].text });
+		x$(container_id).html("bottom",div_c);
+	}
+}
+
+var login_function = function(e) {		
+	document.getElementById('user_field').blur(); 
+	document.getElementById('pass_field').blur(); 
+	
+	x$.data.m_user = x$("#user_field").elements[0].value;
+	x$.data.m_pass = x$("#pass_field").elements[0].value;
+	
+	sql.post("user",x$.data.m_user);
+	sql.post("password",x$.data.m_pass);
+	
+	load_tweets("#content",x$.data.m_user,x$.data.m_pass);
+	show_panel("#content");
+	x$("#post_new_tweet").css({display:"block"});
+	e.preventDefault();
+}
+
+var search_function = function(e) {
+	document.getElementById('query').blur();
+	
+	var search_query = document.getElementById('query').value;
+	x$("#search_results").html("top","<h2>Search Results for \"" + search_query + "\"</h2>");
+	search_tweets("#search_results",search_query);
+	
+	e.preventDefault();
 }
