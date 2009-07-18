@@ -48,7 +48,8 @@ x$(window).load(function() {
 
 	x$("#menu_logout").click(function() {
 		x$("#content").html(" ");
-		x$("#post_new_tweet").css({display:"none"});
+		x$(".panel").css({display:'none'});
+		x$("#login_screen").setStyle("display", "block");
 		document.getElementById('user_field').value = "";
 		document.getElementById('pass_field').value = "";
 		show_panel("#login_screen");
