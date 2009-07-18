@@ -56,42 +56,46 @@ x$(window).load(function() {
 
 var load_dms = function(container_id,user,passw) {
 	x$(container_id).xhr(direct_messages_url,
-		{ callback: function () {
-			tweetstream = eval(this.responseText);
-			var i=0;
-			for (i=0; i<tweetstream.length; i++) {
-				x$(container_id).html("bottom",
-					format_tweet({
-						profile_image:tweetstream[i].sender.profile_image_url,
-						user_name:tweetstream[i].sender.name,
-						tweet_text:tweetstream[i].text
-					}));
-				}
-			},
+						 { callback: function () { render_dms(container_id,this.responseText); },
 			headers: [{name:"Authorization",
 						value: "Basic " + btoa(user + ":" + passw)}]
 		});
+}
+
+var render_dms = function(container_id,new_tweets) {
+	var tweetstream = eval(new_tweets);
+	var i=0;
+	for (i=0; i<tweetstream.length; i++) {
+		x$(container_id).html("bottom",
+							  format_tweet({
+										   profile_image:tweetstream[i].sender.profile_image_url,
+										   user_name:tweetstream[i].sender.name,
+										   tweet_text:tweetstream[i].text
+										   }));
+	}
 }
 
 var load_tweets = function(container_id,user,passw) {
 	x$("#login_screen").setStyle("display","none");
 	
 	x$(container_id).xhr(friends_timeline_url,
-		{ callback: function () {
-			tweetstream = eval(this.responseText);
-			var i=0;
-			for (i=0; i<tweetstream.length; i++) {
-				x$(container_id).html("bottom",
-					format_tweet({
-						profile_image:tweetstream[i].user.profile_image_url,
-						user_name:tweetstream[i].user.name,
-						tweet_text:tweetstream[i].text
-					}));
-				}
-			},
+						 { callback: function () { render_tweets(container_id, this.responseText); },
 			headers: [{name:"Authorization",
 						value: "Basic " + btoa(user + ":" + passw)}]
 		});
+}
+
+var render_tweets = function(container_id, new_tweets) {
+	var tweetstream = eval(new_tweets);
+	var i=0;
+	for (i=0; i<tweetstream.length; i++) {
+		x$(container_id).html("bottom",
+							  format_tweet({
+										   profile_image:tweetstream[i].user.profile_image_url,
+										   user_name:tweetstream[i].user.name,
+										   tweet_text:tweetstream[i].text
+										   }));
+	}
 }
 
 var format_tweet = function(options) {
@@ -105,18 +109,7 @@ var format_tweet = function(options) {
 var post_tweet = function(status,user,passw,container_id) {
  	var params = "status=" + encodeURIComponent(status);
  	x$(container_id).xhr(tweet_post_url,
- 		{ callback: function() {
-			try {
-				tweet_response = eval("[" + this.responseText + "]");
-			} catch (e) {
-				alert(e);
-			}
-			x$("#content").html("top",
-				format_tweet({
-					profile_image:tweet_response[0].user.profile_image_url,
-					user_name:tweet_response[0].user.name,
-					tweet_text:tweet_response[0].text
-			}))},
+						 { callback: function() { render_new_tweet(this.responseText); },
 			headers: [{name:"Authorization",
 	 						value: "Basic " + btoa(user + ":" + passw)},
 						{name:"Content-Length",
@@ -129,6 +122,20 @@ var post_tweet = function(status,user,passw,container_id) {
  			data: params
 	});
 	navigator.notification.beep(2);
+}
+
+var render_new_tweet = function(new_tweet) {
+	try {
+		tweet_response = eval("[" + new_tweet + "]");
+	} catch (e) {
+		alert(e);
+	}
+	x$("#content").html("top",
+						format_tweet({
+									 profile_image:tweet_response[0].user.profile_image_url,
+									 user_name:tweet_response[0].user.name,
+									 tweet_text:tweet_response[0].text
+									 }))
 }
 
 var show_panel = function(identifier) {

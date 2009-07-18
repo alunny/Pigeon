@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>pigeon.js</string>
+								<string>index.html</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>pigeon.js</string>
+										<string>index.html</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E7D5E5F110124540005B1662</string>
+										<string>E7D5E60110124734005B1662</string>
 										<key>history</key>
 										<array>
 											<string>E71019770FEAF7D7003D342F</string>
@@ -335,8 +335,8 @@
 											<string>E77069560FF5976200333115</string>
 											<string>E7D5E57310115237005B1662</string>
 											<string>E7D5E5CE101242F9005B1662</string>
-											<string>E7D5E5EF10124540005B1662</string>
-											<string>E7D5E5EC1012451F005B1662</string>
+											<string>E7D5E5FD10124734005B1662</string>
+											<string>E7D5E5FE10124734005B1662</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -357,6 +357,11 @@
 											<string>E7D5E5DD101243E7005B1662</string>
 											<string>E7D5E5ED1012451F005B1662</string>
 											<string>E7D5E5F010124540005B1662</string>
+											<string>E7D5E5F41012464A005B1662</string>
+											<string>E7D5E5F9101246BB005B1662</string>
+											<string>E7D5E5FA101246BB005B1662</string>
+											<string>E7D5E5FF10124734005B1662</string>
+											<string>E7D5E60010124734005B1662</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
