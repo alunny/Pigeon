@@ -1,0 +1,166 @@
+body {
+	background: #3F3F40 url(assets/tweet_background.png) 0 150px repeat-x;
+	color:#fff;
+	font-family:Helvetica;
+	font-size:72%;
+	line-height:1.5em;
+	margin:0;
+	-webkit-text-size-adjust: none;
+}
+
+/*------------------------------------------------------------------------ 
+	General 
+--------------------------------------------------------------------------*/
+
+h1, h2 {
+	margin: 0;
+}	
+
+a, a:visited {
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+}
+
+/*------------------------------------------------------------------------ 
+	Form 
+--------------------------------------------------------------------------*/
+
+#tweet_content, #login_input, #search_input {
+	width: 200px;
+}
+
+#login_input {
+	padding-top: 11px;
+}
+
+#search_input {
+	padding-top: 40px;
+}
+
+label {
+	vertical-align: baseline;
+	width: 62px;
+	margin-right: 5px;
+	text-align: right;
+	float: left;
+}
+
+#user_field, #pass_field, #query {
+	width: 110px;
+	height: 20px;
+	margin-bottom: 8px;
+}
+
+.left_column {
+	float: right;
+	width: 92px;
+}
+
+.login_input {
+	text-align: right;
+}
+
+#tweet_content {
+	height: 64px;
+}
+
+#tweet_link, #login_link, #search_link {
+	float: right;
+	background: url(assets/tweet_button.png) top left no-repeat;
+	height: 48px;
+	width: 80px;
+	margin-top: 12px;
+	color: #005d98;
+	font-weight: normal;
+	text-align: center;
+	line-height: 4.0em;
+	padding-left: 10px;
+}
+
+#login_link {
+	background: url(assets/login_button.png) top left no-repeat;	
+}
+
+#search_link {
+	background: url(assets/button.png) top left no-repeat;
+}
+
+/*------------------------------------------------------------------------ 
+	Layout 
+--------------------------------------------------------------------------*/
+
+#header {
+	background: url(assets/header.png) repeat-x top left;
+	padding: 24px 8px;
+	height: 66px;
+}
+
+#header h1 {
+	float: right;
+}
+
+
+/*------------------------------------------------------------------------ 
+	Menu 
+--------------------------------------------------------------------------*/
+
+#menu_options {
+	background: url(assets/bar.png) repeat-x top left;
+	margin: 0;
+	height: 20px;
+	padding: 8px;
+}
+
+ul {
+	margin: 0;
+}
+
+#menu_options ul li {
+	display: inline;
+	margin-right: 8px;
+}
+
+#menu_options ul li a {
+	font-size: 11px;
+	padding: 4px;
+	display: block-inline;
+}
+
+
+/*------------------------------------------------------------------------ 
+	Content 
+--------------------------------------------------------------------------*/
+
+
+.twt_panel, #post_new_tweet {
+	display: none;
+}
+
+.twt_panel {
+	width: 320px;
+}
+
+.tweet {
+	background: url(assets/tweet_background.png) top left repeat-x;
+	display: block;
+	min-height: 64px;
+	padding: 4px 0;
+	overflow: hidden;
+}
+.tweet img {
+	float: left;
+	margin: 4px 8px;
+	width: 48px;
+	height: 48px;
+	border: 1px solid #666;
+}
+
+.tweet .user_name {
+	font-weight: bold;
+	color: #ccc;
+}
+
+.tweet p {
+	margin: 0 0 0 64px;
+}

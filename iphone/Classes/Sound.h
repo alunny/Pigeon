@@ -9,11 +9,28 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioServices.h>
 
-@interface Sound : NSObject {
-	SystemSoundID soundID;
+#ifdef __IPHONE_3_0
+#import <AVFoundation/AVFoundation.h>
+#endif
+
+#import "PhoneGapCommand.h"
+
+@interface Sound : PhoneGapCommand
+#ifdef __IPHONE_3_0
+    <AVAudioPlayerDelegate>
+#endif
+{
+	NSString *successCallback;
+	NSString *errorCallback;
+
+#ifdef __IPHONE_3_0
+	AVAudioPlayer *player;
+#endif
 }
 
-- (id) initWithContentsOfFile:(NSString * )path;
-- (void) play;
+@property (retain) NSString* successCallback;
+@property (retain) NSString* errorCallback;
+
+- (void) play:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
 
 @end

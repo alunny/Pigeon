@@ -8,11 +8,10 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "PhoneGapCommand.h"
 
-
-@interface Image : NSObject {
+@interface Image : PhoneGapCommand {
 	IBOutlet UIWindow *window;
-	IBOutlet UIWebView *webView;		
 	
 	UIImagePickerController *picker;	// added by urbian
 	NSString *photoUploadUrl;			// added by urbian
@@ -22,7 +21,7 @@
 
 }
 
-@property (nonatomic, retain) UIImagePickerController *imagePickerController;
+@property (nonatomic, retain) UIImagePickerController *picker;
 @property (nonatomic, retain) UIWindow *window;
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image2 editingInfo:(NSDictionary *)editingInfo;

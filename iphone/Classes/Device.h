@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <UIKit/UIDevice.h>
+#import "PhoneGapCommand.h"
 
-@interface Device : NSObject {
-	UIDevice *myCurrentDevice;
+@interface Device : PhoneGapCommand {
 }
+
+- (NSDictionary*) deviceProperties;
 
 @end

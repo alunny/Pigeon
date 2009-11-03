@@ -8,88 +8,181 @@
 
 #import "Location.h"
 
-#define LocStr(key) [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
-
 @implementation Location
+
 @synthesize locationManager;
-@synthesize lastKnownLocation;
 
-static Location *sharedCLDelegate = nil;
-
-
-- (id) init {
-    self = [super init];
-    if (self != nil) {
+-(PhoneGapCommand*) initWithWebView:(UIWebView*)theWebView
+{
+    self = (Location*)[super initWithWebView:(UIWebView*)theWebView];
+    if (self) {
         self.locationManager = [[[CLLocationManager alloc] init] autorelease];
         self.locationManager.delegate = self; // Tells the location manager to send updates to this object
     }
     return self;
 }
 
+- (BOOL) hasHeadingSupport
+{
+	 // check whether headingAvailable property is avail (for 2.x devices)
+	if ([self.locationManager respondsToSelector:@selector(headingAvailable)] == NO)
+        return NO;
+
+	#ifdef __IPHONE_3_0
+	// now 3.x device, check whether it has heading support (eg Compass)
+	if ([self.locationManager headingAvailable] == NO) 
+		return NO;
+	#endif
+	
+	return YES;
+}
+
+- (void)startLocation:(NSMutableArray*)arguments
+     withDict:(NSMutableDictionary*)options
+{
+    if (__locationStarted == YES)
+        return;
+    if ([self.locationManager locationServicesEnabled] != YES)
+        return;
+    
+    // Tell the location manager to start notifying us of location updates
+    [self.locationManager startUpdatingLocation];
+    __locationStarted = YES;
+
+    if ([options objectForKey:@"distanceFilter"]) {
+        CLLocationDistance distanceFilter = [(NSString *)[options objectForKey:@"distanceFilter"] doubleValue];
+        self.locationManager.distanceFilter = distanceFilter;
+    }
+    
+    if ([options objectForKey:@"desiredAccuracy"]) {
+        int desiredAccuracy_num = [(NSString *)[options objectForKey:@"desiredAccuracy"] integerValue];
+        CLLocationAccuracy desiredAccuracy = kCLLocationAccuracyBest;
+        if (desiredAccuracy_num < 10)
+            desiredAccuracy = kCLLocationAccuracyBest;
+        else if (desiredAccuracy_num < 100)
+            desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        else if (desiredAccuracy_num < 1000)
+            desiredAccuracy = kCLLocationAccuracyHundredMeters;
+        else if (desiredAccuracy_num < 3000)
+            desiredAccuracy = kCLLocationAccuracyKilometer;
+        else
+            desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+        
+        self.locationManager.desiredAccuracy = desiredAccuracy;
+    }
+}
+
+- (void)stopLocation:(NSMutableArray*)arguments
+    withDict:(NSMutableDictionary*)options
+{
+    if (__locationStarted == NO)
+        return;
+    if ([self.locationManager locationServicesEnabled] != YES)
+        return;
+    
+    [self.locationManager stopUpdatingLocation];
+    __locationStarted = NO;
+}
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-	[lastKnownLocation release];
-	lastKnownLocation = newLocation;
-	[lastKnownLocation retain];	
+    int epoch = [newLocation.timestamp timeIntervalSince1970];
+    float course = -1.0f;
+    float speed  = -1.0f;
+#ifdef __IPHONE_2_2
+    course = newLocation.course;
+    speed  = newLocation.speed;
+#endif
+	NSString* coords =  [NSString stringWithFormat:@"coords: { latitude: %f, longitude: %f, altitude: %f, heading: %f, speed: %f, accuracy: {horizontal: %f, vertical: %f}, altitudeAccuracy: null }",
+							newLocation.coordinate.latitude,
+							newLocation.coordinate.longitude,
+							newLocation.altitude,
+							course,
+							speed,
+							newLocation.horizontalAccuracy,
+							newLocation.verticalAccuracy
+						 ];
+	
+    NSString * jsCallBack = [NSString stringWithFormat:@"navigator.geolocation.setLocation({ timestamp: %d, %@ });", epoch, coords];
+    NSLog(@"%@", jsCallBack);
+    
+    [webView stringByEvaluatingJavaScriptFromString:jsCallBack];
 }
 
-
-- (NSString *)getPosition 
-{	
-
-	return [[NSString alloc] initWithFormat:@"var geo={lat:%f,lng:%f,alt:%f};", 
-			lastKnownLocation.coordinate.latitude, 
-			lastKnownLocation.coordinate.longitude, 
-			lastKnownLocation.altitude];	
-
-}
-
-+ (Location *)sharedInstance {
-    @synchronized(self) {
-        if (sharedCLDelegate == nil) {
-            [[self alloc] init]; // assignment not done here
-        }
-    }
-    return sharedCLDelegate;
-}
-
-+ (id)allocWithZone:(NSZone *)zone {
-    @synchronized(self) {
-        if (sharedCLDelegate == nil) {
-            sharedCLDelegate = [super allocWithZone:zone];
-            return sharedCLDelegate;  // assignment and return on first allocation
-        }
-    }
-    return nil; // on subsequent allocation attempts return nil
-}
-
-- (id)copyWithZone:(NSZone *)zone
+- (void)startHeading:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
 {
-    return self;
+#ifdef __IPHONE_3_0
+    if (__headingStarted == YES)
+        return;
+    if ([self hasHeadingSupport] == NO) 
+        return;
+	
+    // Tell the location manager to start notifying us of heading updates
+    [self.locationManager startUpdatingHeading];
+    __headingStarted = YES;
+#endif	
+}	
+
+- (void)stopHeading:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+{
+#ifdef __IPHONE_3_0
+    if (__headingStarted == NO)
+        return;
+    if ([self hasHeadingSupport] == NO) 
+		return;
+    
+    [self.locationManager stopUpdatingHeading];
+    __headingStarted = NO;
+#endif
+}	
+
+#ifdef __IPHONE_3_0
+
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager
+{
+	return YES;
 }
 
-- (id)retain {
-    return self;
+- (void)locationManager:(CLLocationManager *)manager
+	   didUpdateHeading:(CLHeading *)heading
+{
+	int epoch = [heading.timestamp timeIntervalSince1970];
+	
+    NSString * jsCallBack = [NSString stringWithFormat:@"navigator.compass.setHeading({ timestamp: %d, magneticHeading: %f, trueHeading: %f, headingAccuracy: %f });", 
+							 epoch, heading.magneticHeading, heading.trueHeading, heading.headingAccuracy];
+   // NSLog(@"%@", jsCallBack);
+    
+    [webView stringByEvaluatingJavaScriptFromString:jsCallBack];
 }
 
-- (unsigned)retainCount {
-    return UINT_MAX;  // denotes an object that cannot be released
-}
+#endif
 
-- (void)release {
-    //do nothing
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+	NSString* jsCallBack = @"";
+	
+	#ifdef __IPHONE_3_0
+	if ([error code] == kCLErrorHeadingFailure) {
+		jsCallBack = [NSString stringWithFormat:@"navigator.compass.setError(\"%s\");",
+					  [error localizedDescription]
+					  ];
+	} else 
+	#endif
+	{
+		jsCallBack = [NSString stringWithFormat:@"navigator.geolocation.setError(\"%s\");",
+								 [error localizedDescription]
+								];
+	}
+    NSLog(@"%@", jsCallBack);
+    
+    [webView stringByEvaluatingJavaScriptFromString:jsCallBack];
 }
-
-- (id)autorelease {
-    return self;
-}
-
 
 - (void)dealloc {
-    [locationManager release];
+    [self.locationManager release];
 	[super dealloc];
 }
 
