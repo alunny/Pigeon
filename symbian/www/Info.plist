@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>DisplayName</key>
-	<string>phonegap</string>
+	<string>Pigeon</string>
 	<key>Identifier</key>
-	<string>com.phonegap.basic.widget</string>
+	<string>com.pigeon.basic.widget</string>
 	<key>Version</key>
-	<string>1.0</string>
+	<string>0.0.1</string>
 	<key>AllowNetworkAccess</key>
 	<true/>
 	<key>MainHTML</key>

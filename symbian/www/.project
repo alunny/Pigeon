@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Pigeon.Symbian</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.nokia.wrt.widgetPreviewBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.nokia.wrt.WidgetProjectNature</nature>
+		<nature>com.aptana.ide.project.nature.web</nature>
+	</natures>
+</projectDescription>
