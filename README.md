@@ -6,6 +6,8 @@ Pigeon is a demo app for the PhoneGap framework, showing how to use PhoneGap to 
 
 Pigeon is currently built on iPhone, Android and Symbian. Reliability varies a lot right now :|
 
+___If you are not embarrassed by the first version of your product, you’ve launched too late.___ - Reid Hoffman
+
 Pigeon depends on the following projects:
 
 *  [PhoneGap](http://github.com/sintaxi/phonegap/tree/master)
