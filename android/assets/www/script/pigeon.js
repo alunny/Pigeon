@@ -112,9 +112,9 @@ var post_tweet = function(status,user,passw,container_id) {
 						 { callback: function() { render_new_tweet(this.responseText); },
 			headers: [{name:"Authorization",
 	 						value: "Basic " + btoa(user + ":" + passw)},
-						{name:"Content-Length",
-							value: params.length},
-						{name:"Content-type",
+			//			{name:"Content-Length",
+			//				value: "" + params.length},
+						{name:"Content-Type",
 							value:"application/x-www-form-urlencoded"},
 						{name:"Connection",
 							value: "close"}],
@@ -125,6 +125,7 @@ var post_tweet = function(status,user,passw,container_id) {
 }
 
 var render_new_tweet = function(new_tweet) {
+	console.log(new_tweet);
 	try {
 		tweet_response = eval("[" + new_tweet + "]");
 	} catch (e) {
@@ -192,8 +193,8 @@ var login_function = function(e) {
 	x$.data.m_user = x$("#user_field").elements[0].value;
 	x$.data.m_pass = x$("#pass_field").elements[0].value;
 	
-	sql.post("user",x$.data.m_user);
-	sql.post("password",x$.data.m_pass);
+//	sql.post("user",x$.data.m_user);
+//	sql.post("password",x$.data.m_pass);
 	
 	load_tweets("#content",x$.data.m_user,x$.data.m_pass);
 	show_panel("#content"); // failing?
