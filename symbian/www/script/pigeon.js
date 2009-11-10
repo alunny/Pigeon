@@ -4,10 +4,14 @@ var tweet_post_url = "http://www.twitter.com/statuses/update.json";
 var tweet_search_url = "http://search.twitter.com/search.json";
 var tweet_response = "";
 
+alert("HELLO NOKIA");
+
 // Global Data Store
 x$.data = {};
 
 x$(window).load(function() {
+	alert("HELLO NOKIA");
+	
 	x$("#tweet_link").click(function() {
 		var twt = document.getElementById("tweet_content").value;
 		post_tweet(twt,x$.data.m_user,x$.data.m_pass,"#content");
@@ -77,6 +81,7 @@ var render_dms = function(container_id,new_tweets) {
 
 var load_tweets = function(container_id,user,passw) {
 	x$("#login_screen").setStyle("display","none");
+	document.getElementById('loading_loading').innerHTML = "LOADING";
 	
 	x$(container_id).xhr(friends_timeline_url,
 						 { callback: function () { render_tweets(container_id, this.responseText); },
@@ -187,13 +192,12 @@ var display_search_tweets = function(tweetstream,container_id) {
 
 var login_function = function(e) {		
 	document.getElementById('user_field').blur(); 
-	document.getElementById('pass_field').blur(); 
+	document.getElementById('pass_field').blur();
+	document.getElementById('loading_loading').innerHTML = "LOADING";
 	
 	x$.data.m_user = x$("#user_field").elements[0].value;
 	x$.data.m_pass = x$("#pass_field").elements[0].value;
 	
-	sql.post("user",x$.data.m_user);
-	sql.post("password",x$.data.m_pass);
 	
 	load_tweets("#content",x$.data.m_user,x$.data.m_pass);
 	show_panel("#content");
