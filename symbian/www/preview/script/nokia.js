@@ -614,9 +614,11 @@ if(typeof NOKIA == "undefined" || !NOKIA)
 		setMenuItemsStyle : function()
 		{
 			var style 	= NOKIA.deviceList[NOKIA.currentDevice][NOKIA.mode]['style'];
-			var count;
+			var count = 1;
 			try {
-				count = parseInt(NOKIA.helper.getElementsLengthInObject(NOKIA.emulator.child.menu.items))+1;
+				if (NOKIA.emulator.child.menu) {
+					count = parseInt(NOKIA.helper.getElementsLengthInObject(NOKIA.emulator.child.menu.items)) + 1;
+				}
 			} catch (e) {
 				count = 1;
 			}

@@ -2,7 +2,7 @@ body {
 	background: #3F3F40 url(assets/tweet_background.png) 0 150px repeat-x;
 	color:#fff;
 	font-family:Helvetica;
-	font-size:72%;
+	font-size:100%;
 	line-height:1.5em;
 	margin:0;
 	-webkit-text-size-adjust: none;
@@ -122,7 +122,7 @@ ul {
 }
 
 #menu_options ul li a {
-	font-size: 11px;
+	font-size: 18px;
 	padding: 4px;
 	display: block-inline;
 }
@@ -138,7 +138,7 @@ ul {
 }
 
 .twt_panel {
-	width: 320px;
+	width: 360px;
 }
 
 .tweet {
@@ -147,6 +147,7 @@ ul {
 	min-height: 64px;
 	padding: 4px 0;
 	overflow: hidden;
+	border:		none;
 }
 .tweet img {
 	float: left;

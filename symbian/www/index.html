@@ -55,14 +55,15 @@
 			<h1 id="loading_loading"></h1>
 			
 			<div id="login_screen" class="panel" >
-				<form id="login_form" action="#">
+				<form id="login_form" action="#" style="margin:0px;padding:0px;">
 					
 					<div class="left_column">
 						<h1>Pigeon</h1>
 						<a href="#" class="submission" id="login_link"></a>
 					</div>
-					
-					<div id="login_input">
+				<!-- wrt does not support auth headers, so we need to use the native auth prompt,
+					 and these inputs are thus pointless and misleading -->
+					<div id="login_input" style="display:none;">
 						<label>Username</label><input type="text" id="user_field" name="Username" length="15" />
 						<label>Password</label><input type="password" id="pass_field" name="Password" length="15" />
 					</div>
@@ -116,7 +117,7 @@
 		<div id="content" class="twt_panel">
 		</div>
 		<div id="local_content" class="twt_panel">
-			<h2 id="local_header">Tweets Near You</h2>
+			<h2 id="local_header">Tweets Near You ...finding satellites</h2>
 			<div id="local_results"></div>
 		</div>
 		<div id="search_panel" class="twt_panel">

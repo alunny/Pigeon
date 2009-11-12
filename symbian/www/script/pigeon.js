@@ -4,13 +4,10 @@ var tweet_post_url = "http://www.twitter.com/statuses/update.json";
 var tweet_search_url = "http://search.twitter.com/search.json";
 var tweet_response = "";
 
-alert("HELLO NOKIA");
-
 // Global Data Store
 x$.data = {};
 
 x$(window).load(function() {
-	alert("HELLO NOKIA");
 	
 	x$("#tweet_link").click(function() {
 		var twt = document.getElementById("tweet_content").value;
@@ -101,6 +98,7 @@ var render_tweets = function(container_id, new_tweets) {
 										   tweet_text:tweetstream[i].text
 										   }));
 	}
+	document.getElementById('loading_loading').innerHTML ="";
 }
 
 var format_tweet = function(options) {
@@ -148,23 +146,26 @@ var show_panel = function(identifier) {
 	x$(identifier).css({display:'block'});
 }
 
+var watchId;
 var load_local_tweets = function(container_id) {
 	var suc = function(p) {
-		var params = "geocode=" + encodeURIComponent(p.latitude + "," + p.longitude + ",25km");
+		navigator.geolocation.clearWatch(watchId);
+		var params = "geocode=" + encodeURIComponent(p.coords.latitude + "," + p.coords.longitude + ",25km");
 		var query_url = tweet_search_url + "?" + params;
 		x$(container_id).xhr(query_url,
 			{ callback: function() {
 				var tweetstream = eval("[" + this.responseText + "]")[0].results;
 				x$.data.new_tweets = tweetstream;
 				setTimeout("display_search_tweets(x$.data.new_tweets,'"+container_id+"')",10);
+				document.getElementById("local_header").innerHTML = "Tweets Near You";
 			},
 				method: "get"
 			});
 	};
-	var fail = function(){
-		alert("failed");
+	var fail = function(ex){
+		//alert("failed:" + ex.name + ", " + ex.message);
 	};
-	navigator.geolocation.getCurrentPosition(suc,fail);
+	watchId = navigator.geolocation.watchPosition(suc,fail, { frequency: 5000 });
 }
 
 var search_tweets = function(container_id, search_query) {
@@ -197,7 +198,6 @@ var login_function = function(e) {
 	
 	x$.data.m_user = x$("#user_field").elements[0].value;
 	x$.data.m_pass = x$("#pass_field").elements[0].value;
-	
 	
 	load_tweets("#content",x$.data.m_user,x$.data.m_pass);
 	show_panel("#content");
