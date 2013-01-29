@@ -1,5 +1,8 @@
 # Pigeon
 
+## NOTE: this code hasn't been updated for 3 years. The Twitter API doesn't support basic auth any more, and PhoneGap
+isn't even called PhoneGap these days. Don't use this code.
+
 ### Cross-Platform Twitter app developed using PhoneGap framework
 
 Pigeon is a demo app for the PhoneGap framework, showing how to use PhoneGap to make that most common of mobile applications, a simple Twitter client, and deploy to multiple platforms. Pigeon authenticates your Twitter credentials and then displays all of the tweets from users you're following. You can post a new tweet (Pigeon gives a useful beep after you tweet) or select local tweets, which uses PhoneGap's geolocation api to get tweets from nearby.
